@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.background-radial-gradient {
+  background-color: hsl(333, 32%, 88%);
+  background-image: radial-gradient(650px circle at 0% 0%,
+      hsl(333, 32%, 78%) 88%,
+      hsl(333, 32%, 80%) 90%,
+      hsl(333, 32%, 82%) 92%,
+      hsl(333, 32%, 84%) 94%,
+      transparent 100%),
+    radial-gradient(1250px circle at 100% 100%,
+      hsl(333, 32%, 84%) 94%,
+      hsl(333, 32%, 82%) 92%,
+      hsl(333, 32%, 80%) 90%,
+      hsl(333, 32%, 78%) 88%,
+      transparent 100%);
+}
+
+
+    .background-radial-gradient-services {
+      background-color: hsl(218, 41%, 65%);
+      background-image: radial-gradient(650px circle at 0% 0%,
+          hsl(218, 41%, 65%) 15%,
+          hsl(218, 41%, 60%) 35%,
+          hsl(218, 41%, 55%) 75%,
+          hsl(218, 41%, 50%) 80%,
+          transparent 100%),
+        radial-gradient(1250px circle at 100% 100%,
+          hsl(218, 41%, 50%) 15%,
+          hsl(218, 41%, 55%) 35%,
+          hsl(218, 41%, 60%) 75%,
+          hsl(218, 41%, 65%) 80%,
+          transparent 100%);
+    }
+
+
+    
+
+
+    /*
+
+        .background-radial-gradient {
+      background-color: hsl(333, 32%, 88%);
+      background-image: radial-gradient(650px circle at 0% 0%,
+          hsl(333, 32%, 78%) 88%,
+          hsl(333, 32%, 80%) 90%,
+          hsl(333, 32%, 82%) 92%,
+          hsl(333, 32%, 84%) 94%,
+          transparent 100%),
+        radial-gradient(1250px circle at 100% 100%,
+          hsl(333, 32%, 84%) 94%,
+          hsl(333, 32%, 82%) 92%,
+          hsl(333, 32%, 80%) 90%,
+          hsl(333, 32%, 78%) 88%,
+          transparent 100%);
+    }*/
