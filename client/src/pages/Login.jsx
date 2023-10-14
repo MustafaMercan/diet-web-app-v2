@@ -1,8 +1,18 @@
 import React from 'react'
 import loginPhoto from '../assets/loginFormImage.png'
 import { NavLink } from 'react-router-dom'
+import { useState } from 'react'
+import { formHandler } from '../utils/formHandler'
+import { submitHandler } from '../utils/submitHandler'
 
 const Login = () => {
+
+  const [loginForm,setLoginForm] = useState({})
+  const [information,setInformation] = useState({
+    message:"",
+    error:false
+  })
+
   return (
     <div className="relative bg-white overflow-hidden md:m-32 max-md:m-4">
       <div className="flex justify-center min-h-screen md:p-12 max-md:p-2">
@@ -18,13 +28,16 @@ const Login = () => {
             <h2 className="mt-4 text-gray-500 dark:text-gray-400">
               Let’s get you all set up so you can verify your personal account and begin setting up your profile.
             </h2>
-
-            <form className="flex flex-col items-center justify-center mt-32 w-full">
-              <div className='shadow-lg w-1/2'>
+            <form className="flex flex-col items-center justify-center mt-32 w-full " 
+            onChange={(event) => formHandler({event,form:loginForm,setForm:setLoginForm})} 
+            onSubmit={(event) => submitHandler({event,form:information, setForm:setInformation, information:loginForm})}
+            >
+            
+              <div className='shadow-lg w-full'>
                 <div className="my-3 text-xl font-medium text-center">Login</div>
                 <div className="p-5 pt-3">
-                  <input type="text" placeholder="Email Address" className="w-full p-3 my-3 border outline-0 placeholder:text-black" />
-                  <input type="password" name="password" id="password" placeholder="Password" className="w-full p-3 my-3 border outline-0 placeholder:text-black" />
+                  <input name="email" type="text" placeholder="Email Address" className="w-full p-3 my-3 border outline-0 placeholder:text-black" />
+                  <input name="password" type="password" id="password" placeholder="Password" className="w-full p-3 my-3 border outline-0 placeholder:text-black" />
                   <div className="mb-3"><input type="checkbox" name="person" id="person" className="mr-2" />Remember me
                   </div>
                 </div>
