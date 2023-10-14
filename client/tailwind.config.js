@@ -9,6 +9,7 @@ export default {
       colors:{
         primaryGreen:"#C6EED5",
         primaryBackground:"#EDE8E5",
+        //secondaryGreen:"#88C250",
         footerGreen:"#B3E6BB",
         sectionColor:"#FAF1E4",
         cardColor:"#CEDEBD",
