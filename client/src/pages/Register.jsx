@@ -2,7 +2,7 @@ import React from 'react'
 import registerPhoto from '../assets/registerFormImage.png'
 import { formHandler } from '../utils/formHandler'
 import { useState } from 'react'
-import { submitHandler } from '../utils/submitHandler'
+import { registerSubmitHandler } from '../utils/submitHandler'
 import { NavLink } from 'react-router-dom'
 const Register = () => {
 
@@ -31,7 +31,7 @@ const Register = () => {
      
                             <form className="grid grid-cols-1 gap-6 mt-24 md:grid-cols-2"
                              onChange={(event) => formHandler({event,form:registerForm, setForm:setRegisterForm})}
-                             onSubmit={(event) => submitHandler({event, setForm:setInformation, information:registerForm,url:'/user/register'})}
+                             onSubmit={(event) => registerSubmitHandler({event, setForm:setInformation, information:registerForm,url:'/user/register'})}
                              >
                             
                                 <div>

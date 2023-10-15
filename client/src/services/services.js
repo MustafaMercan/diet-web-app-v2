@@ -8,7 +8,7 @@ export const postRequest = async(url,body) => {
         },
         body:JSON.stringify(body)
     })
-    
+        
     const data = await response.json();
 
     if(!response.ok){
