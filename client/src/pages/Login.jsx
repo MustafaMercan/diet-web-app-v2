@@ -1,9 +1,12 @@
 import React, { useEffect } from 'react'
 import loginPhoto from '../assets/loginFormImage.png'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import { formHandler } from '../utils/formHandler'
 import { loginSubmitHandler } from '../utils/submitHandler'
+import { loginUser } from '../redux/user/userSlice'
+
+import { useSelector, useDispatch } from 'react-redux'
 
 const Login = () => {
 
@@ -11,10 +14,24 @@ const Login = () => {
   const [information, setInformation] = useState({
     message: "",
   })
+  const user = useSelector((state) => state.user)
+  const dispatch = useDispatch()
+
+  const navigate = useNavigate();
+
 
   useEffect(() => {
-    console.log(loginForm)
-  }, [loginForm])
+    if(information?.user){
+      navigate('/')
+    }
+  })
+
+  useEffect(() => {
+    if(information?.user){
+      dispatch(loginUser(information.user));
+      navigate('/')
+    }
+  }, [information])
 
   return (
     <div className="relative bg-white overflow-hidden md:m-32 max-md:m-4">

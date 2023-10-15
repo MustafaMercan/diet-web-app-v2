@@ -1,5 +1,5 @@
 import React from 'react'
-import Navbar from '../components/Navbar'
+import Navbar from '../components/Navbar/Navbar'
 import photo from '../assets/homePhoto.jpg';
 import homePhotoV1 from '../assets/homePhotoV1.jpg';
 import cardImage from '../assets/cardsImage.png'
@@ -93,7 +93,7 @@ const Home = () => {
                 </div>
 
                 <div className="py-24 text-center">
-                    <h1 className="text-4xl text-green-800 font-display uppercase tracking-widest">Mustafa Mercan</h1>
+                    <h1 className="text-4xl text-green-800 font-display uppercase tracking-widest">Diyetisten Ayşe Fatma</h1>
                     <div className="w-full max-w-xs h-px bg-gray-300 my-6 mx-auto" />
                     <h2 className="uppercase max-w-sm mx-auto font-heading font-light tracking-widest text-gray-500">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</h2>
                 </div>

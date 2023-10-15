@@ -1,5 +1,7 @@
 import { postRequest, baseUrl } from "../services/services";
 import { useNavigate } from "react-router-dom";
+import { loginUser } from "../redux/user/userSlice";
+import { useSelector, useDispatch } from "react-redux";
 
 //post submit
 export const registerSubmitHandler = async (params) => {
@@ -36,8 +38,5 @@ export const loginSubmitHandler = async (params) => {
         setForm(
             response
         )
-        if(!response.error){
-            //Redux İşlemi Yapılacak Şimdi
-        }
     }
 }

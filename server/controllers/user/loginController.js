@@ -29,7 +29,8 @@ const loginController = async (req, res) => {
                                     firstName: user.firstName,
                                     lastName: user.lastName,
                                     phoneNumber: user.phoneNumber,
-                                    email: user.email
+                                    email: user.email,
+                                    features:user.features,
                                 }
                             })
                             else 

@@ -24,7 +24,37 @@ const userSchema = new mongoose.Schema({
     },
     features:{
         type:Object,
-        default:{}
+        default:{
+            gender:"-",
+            age: "-",
+            weight: "-",
+            height: "-",
+            phoneNumber: "-",
+            diseases: "-",
+            chronicRelative: "-",
+            usedMedications: "-",
+            operations: "-",
+            allergies: "-",
+            dietDecision: "-",
+            physicalActivity: "-",
+            sleepPattern: "-",
+            regl: "-",
+            digestiveSystem: "-",
+            stomachDamaging: "-",
+            mealPlanning: "-",
+            skippedMeal: "-",
+            snacks: "-",
+            essentialFood: "-",
+            notConsumedFood: "-",
+            nightEatingHabits: "-",
+            psychologicalState: "-",
+            waterAmount: "-",
+            teaCoffeAmount: "-",
+            mineralWaterAmount: "-",
+            sodaAmount: "-",
+            sugarAmount: "-",
+            alcoholAmount: "-",
+          }
     }
 },{
     timestamps:true
