@@ -17,7 +17,6 @@ const registerController = async(req,res) => {
         console.log(user)
         if(user) return res.status(400).json({message:'User With The Given Email Already Exist...'});
         if(!firstName || !lastName || !phoneNumber || !email || !password) return res.status(400).json({message:'All fields are required...'});
-
         user = new userModel({
             firstName,
             lastName,

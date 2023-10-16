@@ -12,7 +12,7 @@ router.get('/',(req,res) => {
 })
 
 
-router.post('/login',loginController)
+router.post('/login',loginController)  
 router.post('/register',registerController)
 
 module.exports = {
