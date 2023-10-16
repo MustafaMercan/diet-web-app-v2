@@ -1,8 +1,8 @@
 import React from 'react'
-import registerPhoto from '../assets/registerFormImage.png'
-import { formHandler } from '../utils/formHandler'
+import registerPhoto from '../../assets/registerFormImage.png'
+import { formHandler } from '../../utils/formHandler'
 import { useState } from 'react'
-import { registerSubmitHandler } from '../utils/submitHandler'
+import { registerSubmitHandler } from '../../utils/submitHandler'
 import { NavLink } from 'react-router-dom'
 const Register = () => {
 

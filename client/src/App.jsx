@@ -1,13 +1,15 @@
 import './App.css'
 import { Routes, Route } from 'react-router-dom'
-import Home from './pages/Home'
-import Login from './pages/Login'
-import About from './pages/About'
-import Register from './pages/Register'
+import Home from './pages/Main/Home'
+import Login from './pages/Main/Login'
+import About from './pages/Main/About'
+import Register from './pages/Main/Register'
 import Navbar from './components/Navbar/Navbar'
 import Footer from './components/Footer'
-import UserProfile from './pages/UserProfile'
+import UserProfile from './pages/User/UserProfile'
 import UserAuthentication from './components/Authentication/UserAuthentication'
+import RootLogin from './pages/Root/RootLogin'
+import Root from './pages/Root/Root'
 
 
 function App() {
@@ -24,6 +26,9 @@ function App() {
         <Route path='/user/*' element={<UserAuthentication />}>
           <Route path=':id' element={<UserProfile />} />
         </Route>
+        
+        <Route path = '/root/login' element={<RootLogin/>} />
+        <Route path = '/root' element = {<Root/> } />
         
       </Routes>
       <Footer />

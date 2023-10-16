@@ -7,11 +7,12 @@ const bcrypt = require('bcrypt');
 //route -> /user/login
 const loginController = async (req, res) => {
 
+    console.log('User Login Controller was Worked')
     const { email, password } = req.body;
 
     if (!email || !password) return res.status(400).json({ message: 'All fields are required.' });
 
-    console.log(`Email -> ${email}  Password -> ${password}`);
+    //console.log(`Email -> ${email}  Password -> ${password}`);
 
     //const user = await userModel.findOne({email});
 
@@ -22,7 +23,7 @@ const loginController = async (req, res) => {
                 try {
                     bcrypt.compare(password, user.password)
                         .then((result) => {
-                            console.log('31'); 
+                            //console.log('31'); 
                             if (result) res.status(200).json({
                                 user: {
                                     _id: user._id,

@@ -18,6 +18,9 @@ const Navbar = () => {
   if(location.pathname.startsWith('/user/')){
     return null;
   }
+  if(location.pathname.startsWith('/root')){
+    return null;
+  }
   
   return (
     <div>

@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react'
-import loginPhoto from '../assets/loginFormImage.png'
+import loginPhoto from '../../assets/loginFormImage.png'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
-import { formHandler } from '../utils/formHandler'
-import { loginSubmitHandler } from '../utils/submitHandler'
-import { loginUser } from '../redux/user/userSlice'
+import { formHandler } from '../../utils/formHandler'
+import { loginSubmitHandler } from '../../utils/submitHandler'
+import { loginUser } from '../../redux/user/userSlice'
 
 import { useSelector, useDispatch } from 'react-redux'
 

@@ -1,12 +1,12 @@
 import React from 'react'
-import Navbar from '../components/Navbar/Navbar'
-import photo from '../assets/homePhoto.jpg';
-import homePhotoV1 from '../assets/homePhotoV1.jpg';
-import cardImage from '../assets/cardsImage.png'
-import homePhotoV2 from '../assets/homePhotoV2.jpg';
+import Navbar from '../../components/Navbar/Navbar'
+import photo from '../../assets/homePhoto.jpg';
+import homePhotoV1 from '../../assets/homePhotoV1.jpg';
+import cardImage from '../../assets/cardsImage.png'
+import homePhotoV2 from '../../assets/homePhotoV2.jpg';
 import { useState } from 'react';
-import services from '../assets/services.png';
-import Footer from '../components/Footer';
+import services from '../../assets/services.png';
+import Footer from '../../components/Footer';
 
 
 

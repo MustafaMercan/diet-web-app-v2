@@ -1,5 +1,6 @@
 import {combineReducers, configureStore } from '@reduxjs/toolkit'
 import userReducer from './user/userSlice'
+import systemRootReducer from './root/rootSlice'
 import { applyMiddleware } from '@reduxjs/toolkit'
 import logger from 'redux-logger'
 
@@ -8,6 +9,7 @@ import storage from 'redux-persist/lib/storage';
 
 const rootReducer = combineReducers({
     user:userReducer,
+    root:systemRootReducer
 })
 const persistConfig = {
     key:'root',
