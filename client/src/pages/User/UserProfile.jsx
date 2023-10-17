@@ -2,15 +2,17 @@ import React from 'react'
 import photo from '../../assets/homePhoto.jpg';
 import { useSelector, useDispatch } from 'react-redux';
 import UserNavbar from '../../components/Navbar/UserNavbar';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 import ProfileDetails from '../../components/User/ProfileDetails';
 import AnthropometricDetailts from '../../components/User/AnthropometricDetailts';
 import { useState } from 'react';
+import CreateBooking from '../../components/Booking/CreateBooking';
 const UserProfile = () => {
 
     const user = useSelector((state) => state.user);
 
     const [detailSection, setDetailSection] = useState("Profile");
+    const [booking, setBooking] = useState(false)
     const dispatch = useDispatch();
 
 
@@ -28,10 +30,19 @@ const UserProfile = () => {
                 <h1 className="text-4xl text-green-800 font-display uppercase tracking-widest">{user?.firstName} {user?.lastName}</h1>
                 <div className="w-full max-w-xs h-px bg-gray-300 my-6 mx-auto" />
                 <h2 className="uppercase max-w-sm mx-auto font-heading font-light tracking-widest text-gray-500">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</h2>
-                <a href="#" className="inline-block bg-green-800 opacity-75 text-black uppercase text-xs tracking-widest text-center  m-4 p-3 px-12 hover:opacity-100 hover:text-white">Booking</a>
+                <button
+                 onClick={() => setBooking(!booking)}
+                 className="inline-block bg-green-800 opacity-75 text-black uppercase text-xs tracking-widest text-center  m-4 p-3 px-12 hover:opacity-100 hover:text-white">
+                    Booking
+                    </button>
             </div>
 
             <div className=" w-3/5 mx-auto h-px bg-gray-300" />
+
+            {
+                booking && <CreateBooking/>
+            }
+
 
 
             <div className="py-24 text-center">
@@ -47,9 +58,8 @@ const UserProfile = () => {
 
                 {detailSection === "Profile" && <ProfileDetails/>}
                 {detailSection === "Anthropometric" && <AnthropometricDetailts/>}
-
-
             </div>
+
 
 
 

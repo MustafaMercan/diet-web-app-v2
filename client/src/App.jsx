@@ -10,6 +10,7 @@ import UserProfile from './pages/User/UserProfile'
 import UserAuthentication from './components/Authentication/UserAuthentication'
 import RootLogin from './pages/Root/RootLogin'
 import Root from './pages/Root/Root'
+import CreateBooking from './components/Booking/CreateBooking'
 
 
 function App() {
@@ -24,12 +25,12 @@ function App() {
         <Route path='/register' element={<Register />} />
 
         <Route path='/user/*' element={<UserAuthentication />}>
-          <Route path=':id' element={<UserProfile />} />
+          <Route path=':id' element={<UserProfile />}/>
         </Route>
-        
-        <Route path = '/root/login' element={<RootLogin/>} />
-        <Route path = '/root' element = {<Root/> } />
-        
+
+        <Route path='/root/login' element={<RootLogin />} />
+        <Route path='/root' element={<Root />} />
+
       </Routes>
       <Footer />
 
