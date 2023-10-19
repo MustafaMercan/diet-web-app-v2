@@ -1,7 +1,6 @@
 const userModel = require('../../models/userModel.js');
 
 const getAllUser = async (req, res) => {
-    console.log('sa')
     try {
         const users = await userModel.find({}, {features: 0, password: 0 });
         if (users) {

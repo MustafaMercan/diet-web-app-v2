@@ -29,7 +29,7 @@ export const getRequest = async(url) => {
         let message;
         if(data?.message) message = data.message;
         else message = data;
-
+        
         return {message:data}
     }
     return data;
