@@ -50,9 +50,37 @@ const createBookingController = async(req,res) => {
 
 }
 
+const getUsersBooking = async(req,res) => {
+
+    try{
+        const {userID} = req.body;
+        if(!userID) return res.status(400).json({message:"User Cannot Find."});
+
+        console.log(userID)
+        const user = await userModel.findById(userID);
+        if(!user) return res.status(400).json({message:"User Cannot Find."})
+
+        const bookings = await bookingModel.find({
+            userID
+        });
+
+        res.status(200).json({bookings});
+
+    }catch(err){
+
+        console.log(err);
+        res.status(500).json({ message: 'Error On Server. Please Contact To System Administrator' });
+    }
+
+}
+
+module.exports = {
+    getUsersBooking,
+}
 
 module.exports = {
     getAllBooking:getAllBookingController,
-    createBooking:createBookingController
+    createBooking:createBookingController,
+    getUsersBooking
     
 }

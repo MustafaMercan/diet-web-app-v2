@@ -22,7 +22,7 @@ const UserNavbar = () => {
             <div className="bg-gray-100 py-12 flex items-center justify-center uppercase tracking-widest text-xs text-gray-500">
                 <NavLink to="/" className="mx-4">Home</NavLink>
                 <NavLink to="messages" className="mx-4">Messages</NavLink>
-                <NavLink to="booking" className="mx-4">My Booking</NavLink>
+                <NavLink to="/user/booking" replace="true" className="mx-4">My Booking</NavLink>
                 <NavLink to='/' onClick={() => dispatch(logoutUser())}>
                     Logout
                 </NavLink>

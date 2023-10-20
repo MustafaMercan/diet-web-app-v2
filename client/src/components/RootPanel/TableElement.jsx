@@ -47,9 +47,6 @@ const TableElement = ({ user, state, color }) => {
                     View Profile
                 </NavLink>
             </td>
-
-
-
         </tr>
     )
 }

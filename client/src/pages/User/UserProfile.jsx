@@ -6,7 +6,7 @@ import { NavLink, Outlet } from 'react-router-dom';
 import ProfileDetails from '../../components/User/ProfileDetails';
 import AnthropometricDetailts from '../../components/User/AnthropometricDetailts';
 import { useState } from 'react';
-import CreateBooking from '../../components/Booking/CreateBooking';
+import CreateBooking from '../../components/Booking/User/CreateBooking';
 const UserProfile = () => {
 
     const user = useSelector((state) => state.user);

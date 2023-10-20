@@ -4,7 +4,7 @@ import { useState } from 'react';
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import { useEffect } from 'react';
-import { baseUrl,getRequest,postRequest } from '../../services/services';
+import { baseUrl,getRequest,postRequest } from '../../../services/services';
 import { useSelector, useDispatch } from 'react-redux'
 
 const CreateBooking = () => {
@@ -123,7 +123,6 @@ const CreateBooking = () => {
 
         currDate.setHours(hour);
         currDate.setMinutes(minute);
-        
         setSelectedDate(currDate);
     }
 
