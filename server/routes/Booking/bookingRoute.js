@@ -2,7 +2,9 @@ const express = require('express');
 const {
     getAllBooking,
     createBooking,
-    getUsersBooking 
+    getUsersBooking,
+    deleteUserBooking,
+    updateBooking
 } = require('../../controllers/booking/bookingController')
 
 
@@ -16,10 +18,14 @@ router.get('/',(req,res) => {
 })
 
 
+router.delete('/delete/:id',deleteUserBooking);
 router.post('/user/booking',getUsersBooking)
 router.get('/get/all',getAllBooking);
 router.post('/create/new', createBooking)
 
-module.exports = {
+
+router.put('/update/:id',updateBooking)
+
+module.exports = { 
     bookingRoute:router
 }

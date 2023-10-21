@@ -1,15 +1,11 @@
 import React, { useEffect } from 'react'
 import TableElement from './TableElement'
-
-import { postRequest, baseUrl } from '../../../services/services'
+import { getRequest, baseUrl } from '../../../services/services'
 import { useSelector } from 'react-redux'
 import { useState } from 'react'
 
 const Table = ({type}) => {
-
-  const userID = useSelector(state => state.user)?._id;
-
-
+    
   const [bookingList,setBookingList] = useState(null);
   const [renderList,setRenderList] = useState(null);
 
@@ -19,10 +15,11 @@ const Table = ({type}) => {
   useEffect(() => {
 
     const listRequest = async () => {
-      
-      const response = await postRequest(`${baseUrl}/booking/user/booking`,{
-        userID
-      })
+
+
+    //response değişecek get olacak
+      const response = await getRequest(`${baseUrl}/booking/get/all`);
+
       if(response?.message){
         return setMessage(response?.message);
       }

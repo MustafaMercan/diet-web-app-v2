@@ -1,29 +1,19 @@
 import React from 'react'
-import UserNavbar from '../../components/Navbar/UserNavbar'
-import { useSelector } from 'react-redux'
-import { useState } from 'react'
-import Table from '../../components/Booking/User/Table'
-const UserBookings = () => {
+import Navbar from '../../components/RootPanel/Navbar'
+import { useState } from 'react';
+import Table from '../../components/Booking/Root/Table';
+const RootBooking = () => {
 
-
-    const user = useSelector(state => state.user);
     const [pageSection, setPageSection] = useState("future");
-
-
-    console.log('user -> ', user)
-
-
     return (
-        <div>
-
-            <UserNavbar />
-
+        <div className='flex'>
+            <Navbar />
             <div className="flex flex-col flex-1 w-full">
                 <div className="container px-6 mx-auto grid">
                     <h2
                         className="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
                     >
-                        {user?.firstName}'s Bookings
+                        Bookings
                     </h2>
                     <a
                         className="flex items-center justify-between p-4 mb-8 text-sm font-semibold text-purple-100 bg-purple-600 rounded-lg shadow-md focus:outline-none focus:shadow-outline-purple"
@@ -69,7 +59,7 @@ const UserBookings = () => {
                                 <p
                                     className="text-lg font-semibold text-gray-700 dark:text-gray-200"
                                 >
-                                
+
                                 </p>
                             </div>
                         </div>
@@ -98,7 +88,7 @@ const UserBookings = () => {
                                 <p
                                     className="text-lg font-semibold text-gray-700 dark:text-gray-200"
                                 >
-                                    
+
                                 </p>
                             </div>
                         </div>
@@ -130,9 +120,8 @@ const UserBookings = () => {
 
             </div>
 
-
         </div>
     )
 }
 
-export default UserBookings
+export default RootBooking

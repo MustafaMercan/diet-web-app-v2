@@ -74,13 +74,40 @@ const getUsersBooking = async(req,res) => {
 
 }
 
-module.exports = {
-    getUsersBooking,
+const deleteUserBooking = async(req,res) => {
+    const bookingID = req.params.id;
+    if(!bookingID) return res.status(400).json({message:"Booking no there!"});
+
+    const deletedBooking = await bookingModel.findByIdAndDelete(bookingID);
+
+    
+    if(!deletedBooking) return res.status(500).json({ message: 'Error On Server. Please Contact To System Administrator' });
+
+    res.status(200).json({response:"Booking was deleted."});
+
+
+}
+
+const updateBooking = async(req,res) => {
+    const bookingID = req.params.id;
+    const {booking} = req.body;
+
+    console.log('calismadi sanirim');
+    if(!bookingID || !booking) return res.status(400).json({message:"Booking no there!"});
+
+    const updateBooking = await bookingModel.findByIdAndUpdate(bookingID,booking,{new:true});
+
+    if(!updateBooking) return res.status(500).json({ message: 'Error On Server. Please Contact To System Administrator' });
+    res.status(200).json({response:"Booking Updated"});
+
+    
 }
 
 module.exports = {
     getAllBooking:getAllBookingController,
     createBooking:createBookingController,
-    getUsersBooking
+    deleteUserBooking,
+    getUsersBooking,
+    updateBooking
     
 }

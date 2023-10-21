@@ -33,3 +33,41 @@ export const getRequest = async(url) => {
     }
     return data;
 }
+
+export const deleteRequest = async(url) => {
+    const response = await fetch(url,{
+        method:'DELETE',
+        headers:{
+            'Content-Type': 'application/json',
+        },
+    });
+
+    const data = response.json();
+
+    if(!response.ok){
+        let message;
+        if(data?.message) message = data.message;
+        else message = data
+        return{message}
+    }
+    return data
+}
+
+export const updateRequest = async(url,body) => {
+    const response = await fetch(url,{
+        method:'PUT',
+        headers:{
+            'Content-Type':'application/json',
+        },
+        body:JSON.stringify(body)
+    })
+
+    const data = response.json();
+    if(response.ok){
+        let message;
+        if(data?.message) message = data.message
+        else message = data
+        return{message}
+    }
+    return data
+}

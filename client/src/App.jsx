@@ -12,6 +12,7 @@ import RootLogin from './pages/Root/RootLogin'
 import Root from './pages/Root/Root'
 import CreateBooking from './components/Booking/User/CreateBooking'
 import UserBookings from './pages/User/UserBookings'
+import RootBooking from './pages/Root/RootBooking'
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
 
         <Route path='/root/login' element={<RootLogin />} />
         <Route path='/root' element={<Root />} />
+        <Route path = '/root/bookings' element={<RootBooking/>}/>
 
       </Routes>
       <Footer />

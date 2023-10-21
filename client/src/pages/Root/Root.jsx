@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { logoutRoot } from '../../redux/root/rootSlice'
 import { NavLink } from 'react-router-dom'
-import Table from '../../components/RootPanel/Table'
+import Table from '../../components/RootPanel/Home/Table'
 import Navbar from '../../components/RootPanel/Navbar'
 const Root = () => {
   const dispatch = useDispatch();
@@ -159,6 +159,8 @@ const Root = () => {
             </div>
             
             <Table />
+
+            
           </div>
         </main>
 

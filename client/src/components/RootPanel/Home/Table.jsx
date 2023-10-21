@@ -1,8 +1,8 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
-import { getRequest } from '../../services/services'
+import { getRequest } from '../../../services/services'
 import TableElement from './TableElement'
-import { baseUrl } from '../../services/services'
+import { baseUrl } from '../../../services/services'
 
 const Table = () => {
 

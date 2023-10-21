@@ -4,10 +4,9 @@ import {
     formatDateToTrLocale,
     formatDateHourTrLocale
 } from '../../../utils/formatDateToTrLocale'
-import { deleteRequest, baseUrl } from '../../../services/services'
+import { deleteRequest, baseUrl, updateRequest } from '../../../services/services'
 
 const TableElement = ({ booking }) => {
-
 
 
     return (
@@ -36,17 +35,29 @@ const TableElement = ({ booking }) => {
                 {formatDateHourTrLocale(booking?.bookingTime)}
 
             </td>
-
+            <td>
             <button
                 onClick={() => {
                     deleteRequest(`${baseUrl}/booking/delete/${booking?._id}`)
                     window.location.reload()
                 }}
                 type='submit'
-                class="px-4 py-1 my-5 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-red-400 border border-transparent rounded-lg  hover:bg-red-500 focus:outline-none focus:shadow-outline-purple"
+                className="px-4 py-1 my-5 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-red-400 border border-transparent rounded-lg  hover:bg-red-500 focus:outline-none focus:shadow-outline-purple"
             >
                 Regular
             </button>
+            <button
+                className=" ml-3 px-4 py-1 my-5 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-green-300 border border-transparent rounded-lg  hover:bg-green-800 focus:outline-none focus:shadow-outline-purple"
+                onClick={() => {
+                    booking.completed = true;
+                    updateRequest(`${baseUrl}/booking/update/${booking._id}`,{booking})
+                }}
+            >
+                Completed
+            </button>
+            </td>
+
+
 
 
         </tr>
