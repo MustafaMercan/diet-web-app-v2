@@ -13,7 +13,8 @@ import Root from './pages/Root/Root'
 import CreateBooking from './components/Booking/User/CreateBooking'
 import UserBookings from './pages/User/UserBookings'
 import RootBooking from './pages/Root/RootBooking'
-
+import UserEditProfile from './pages/User/UserEditProfile'
+import RootUserProfile from './pages/Root/UserProfile'
 
 function App() {
 
@@ -29,11 +30,13 @@ function App() {
         <Route path='/user/*' element={<UserAuthentication />}>
           <Route path=':id' element={<UserProfile />}/>
           <Route path='booking' element = {<UserBookings/>} />
+          <Route path=':id/edit' element = {<UserEditProfile/>}/>
         </Route>
 
         <Route path='/root/login' element={<RootLogin />} />
         <Route path='/root' element={<Root />} />
         <Route path = '/root/bookings' element={<RootBooking/>}/>
+        <Route path = '/root/:id' element={<RootUserProfile/>} />
 
       </Routes>
       <Footer />

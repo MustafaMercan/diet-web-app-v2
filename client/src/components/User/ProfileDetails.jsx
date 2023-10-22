@@ -1,10 +1,30 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import { useParams } from 'react-router-dom';
+import { baseUrl, getRequest, postRequest } from '../../services/services';
 
 const ProfileDetails = () => {
 
-    const user = useSelector((state) => state.user);
+  const [user,setUser] = useState(null);
+  const tmpUser = useSelector(state => state.user)
+  const userID = useParams().id;
 
+  useEffect(() => {
+    if(location.pathname.startsWith('/user/')){
+      setUser(tmpUser);
+    }
+    if(location.pathname.startsWith('/root/')){
+
+      ( async() => {
+        const response = await getRequest(`${baseUrl}/user/get/${userID}`);
+        if(response.user){
+          setUser(response.user);
+        }
+    } )();
+
+    }
+  },[])
+  
   return (
     <div>
       <h1 className="text-4xl text-green-800 font-display uppercase tracking-widest m-12">Profile Details</h1>

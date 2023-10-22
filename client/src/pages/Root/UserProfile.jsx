@@ -2,7 +2,7 @@ import React from 'react'
 import photo from '../../assets/homePhoto.jpg';
 import { useSelector, useDispatch } from 'react-redux';
 import UserNavbar from '../../components/Navbar/UserNavbar';
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink, Outlet, useParams } from 'react-router-dom';
 import ProfileDetails from '../../components/User/ProfileDetails';
 import AnthropometricDetailts from '../../components/User/AnthropometricDetailts';
 import { useState } from 'react';
@@ -10,12 +10,12 @@ import CreateBooking from '../../components/Booking/User/CreateBooking';
 
 const UserProfile = () => {
 
-    const user = useSelector((state) => state.user);
-
     const [detailSection, setDetailSection] = useState("Profile");
-    const [booking, setBooking] = useState(false)
-    const dispatch = useDispatch();
-
+    const [booking, setBooking] = useState(false) 
+    
+    const userID = useParams().id;
+    console.log(userID);
+    
 
     return (
         <div>
@@ -28,7 +28,7 @@ const UserProfile = () => {
 
             <div className="py-4 text-center">
                 <NavLink to='edit' className="pb-12">Edit Profile</NavLink>
-                <h1 className="text-4xl text-green-800 font-display uppercase tracking-widest">{user?.firstName} {user?.lastName}</h1>
+                <h1 className="text-4xl text-green-800 font-display uppercase tracking-widest">test1 test2</h1>
                 <div className="w-full max-w-xs h-px bg-gray-300 my-6 mx-auto" />
                 <h2 className="uppercase max-w-sm mx-auto font-heading font-light tracking-widest text-gray-500">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</h2>
                 <button
