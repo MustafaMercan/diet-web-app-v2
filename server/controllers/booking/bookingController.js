@@ -99,8 +99,6 @@ const updateBooking = async(req,res) => {
 
     if(!updateBooking) return res.status(500).json({ message: 'Error On Server. Please Contact To System Administrator' });
     res.status(200).json({response:"Booking Updated"});
-
-    
 }
 
 module.exports = {
