@@ -15,6 +15,7 @@ import UserBookings from './pages/User/UserBookings'
 import RootBooking from './pages/Root/RootBooking'
 import UserEditProfile from './pages/User/UserEditProfile'
 import RootUserProfile from './pages/Root/UserProfile'
+import Chat from './pages/Chat/Chat'
 
 function App() {
 
@@ -33,6 +34,8 @@ function App() {
           <Route path=':id/edit' element = {<UserEditProfile/>}/>
         </Route>
 
+        
+        <Route path = '/chat' element = {<Chat/>} />
         <Route path='/root/login' element={<RootLogin />} />
         <Route path='/root' element={<Root />} />
         <Route path = '/root/bookings' element={<RootBooking/>}/>

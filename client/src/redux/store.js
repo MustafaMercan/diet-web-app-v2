@@ -11,6 +11,7 @@ const rootReducer = combineReducers({
     user:userReducer,
     root:systemRootReducer
 })
+
 const persistConfig = {
     key:'root',
     storage
