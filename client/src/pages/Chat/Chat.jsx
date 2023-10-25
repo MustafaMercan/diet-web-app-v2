@@ -1,23 +1,83 @@
 import React from 'react'
 import SideBar from '../../components/Chat/SideBar'
-import {socket} from '../../socket'
-
+import { useState, useEffect } from 'react';
+import {socket} from '../../socket';
+import { useSelector } from 'react-redux';
+import { getRequest, baseUrl } from '../../services/services';
+import ChatScreen from '../../components/Chat/ChatScreen';
 
 const Chat = () => {
 
-
-    socket.on('connect',() => {
-        socket.emit('user',{id:"31"})
-        
-    })
-
-
+    const user =  useSelector(state => state.root);
     
+    const [potentialChat, setPotentialChat] = useState(null);
+
+    const [openChat, setOpenChat] = useState(null);
+
+    const [availableChat, setAvailableChat] = useState(null);
+    
+    const [availableUsers,setAvailableUsers] = useState(null);
+
+
+
+
+    useEffect(() => {
+        socket.emit('userInformation',{user});
+
+        const getAvailableChat = async() => {
+            try{
+                getRequest(`${baseUrl}/chat/get/all`)
+                .then(response => {
+                    if(response?.chats) setAvailableChat(response?.chats);
+                })
+            }catch(err){
+                console.log(err)
+            }
+        }
+
+        getAvailableChat();
+
+
+        return () => {
+            socket.off('disconnect');
+        }
+    },[])
+
+
+    useEffect(() => {
+        //console.log(availableChat)
+        const getUsers = async() => {
+            try{
+                getRequest(`${baseUrl}/user/all/get`)
+                .then(response => {
+                    if(response?.users){
+                        const filtered = response.users.filter((user) => {
+                            return !availableChat?.some((chat) => chat.members.includes(user._id))
+                        })
+                        const filteredUser = response.users.filter((user) => {
+                            return availableChat?.some((chat) => chat.members.includes(user._id))
+                        })
+                        setPotentialChat(filtered);
+                        setAvailableUsers(filteredUser);
+                    }
+                })
+            }catch(err){
+                console.log(err)
+            }
+            
+        }
+        getUsers()
+
+    },[availableChat])
+
+
+
+
     return (
         <div className="flex h-screen antialiased text-gray-800 my-12">
-            <div className="flex flex-row h-full w-full overflow-x-hidden">
-                <SideBar />
-
+            <div className="flex flex-row h-full w-full overflow-x-hidden bg-black">
+                <SideBar potentialChat = {potentialChat} availableChat={availableUsers} />
+                <ChatScreen />
             </div>
         </div>
     )

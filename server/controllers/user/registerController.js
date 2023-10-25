@@ -32,6 +32,7 @@ const registerController = async(req,res) => {
         res.status(200).json({message:'The user created.'})
     }catch(err){
         console.log(err);
+        return res.status(400).json({message:'Contact with system administor...'});
     }
 
 
