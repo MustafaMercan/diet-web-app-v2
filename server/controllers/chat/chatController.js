@@ -29,9 +29,20 @@ const getAllChat = async(req,res) => {
         return res.status(400).json({message:'Contact with system administor...'});
 
     }
-
 }
+
+const getChat = async(req,res) => {
+
+    const id = req.params.id;
+    const chats = await chatModel.find({"members":{
+        $in:id
+    }}) 
+    if(!chats) return res.status(400).json({message:'There is no chat.'});
+    res.status(200).json({chats});
+}
+
 module.exports = {
     createChat,
-    getAllChat
+    getAllChat,
+    getChat
 }

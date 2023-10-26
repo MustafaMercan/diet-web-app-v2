@@ -3,6 +3,8 @@ const { Server } = require('socket.io');
 
 module.exports = (server) => {
 
+  const users = {}
+
 
 
     const io = new Server(server, {
@@ -17,9 +19,8 @@ module.exports = (server) => {
 
   
     io.on('connection', (socket) => {
-      console.log(socket.id);
-      // Diğer socket işlemleri burada eklenebilir
-      require('./chatSocket')(socket);
+      
+      require('./chatSocket')(io,socket,users);
     });
 
 

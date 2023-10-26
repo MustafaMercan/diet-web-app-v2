@@ -8,11 +8,21 @@ import ChatScreen from '../../components/Chat/ChatScreen';
 
 const Chat = () => {
 
-    const user =  useSelector(state => state.root);
+    const user = useSelector(state => {
+        if(state.root?._id) return state.root;
+        else if(state.user?._id) return state.user
+      });
+
+    
     
     const [potentialChat, setPotentialChat] = useState(null);
 
     const [openChat, setOpenChat] = useState(null);
+    const [destUser,setDestUser] = useState(null);
+
+    const [messages, setMessages] = useState(null);
+
+
 
     const [availableChat, setAvailableChat] = useState(null);
     
@@ -22,7 +32,6 @@ const Chat = () => {
 
 
     useEffect(() => {
-        socket.emit('userInformation',{user});
 
         const getAvailableChat = async() => {
             try{
@@ -48,20 +57,40 @@ const Chat = () => {
         //console.log(availableChat)
         const getUsers = async() => {
             try{
-                getRequest(`${baseUrl}/user/all/get`)
-                .then(response => {
-                    if(response?.users){
-                        const filtered = response.users.filter((user) => {
-                            return !availableChat?.some((chat) => chat.members.includes(user._id))
-                        })
-                        const filteredUser = response.users.filter((user) => {
-                            return availableChat?.some((chat) => chat.members.includes(user._id))
-                        })
-                        setPotentialChat(filtered);
-                        setAvailableUsers(filteredUser);
-                    }
-                })
-            }catch(err){
+
+                if(!user.features){
+                    getRequest(`${baseUrl}/user/all/get`)
+                    .then(response => {
+                        if(response?.users){
+                            const filtered = response.users.filter((user) => {
+                                return !availableChat?.some((chat) => chat.members.includes(user._id))
+                            })
+                            const filteredUser = response.users.filter((user) => {
+                                return availableChat?.some((chat) => chat.members.includes(user._id))
+                            })
+                            setPotentialChat(filtered);
+                            setAvailableUsers(filteredUser);
+                        }
+                    })
+                }else{
+                    getRequest(`${baseUrl}/root/get/all`)
+                    .then(response => {
+                        if(response){
+                            const filtered = response.filter((root) => {
+                                return !availableChat?.some((chat) => chat.members.includes(root?._id));
+                            })
+                            const filteredUser = response.filter((root) => {
+                                return availableChat?.some((chat) => chat.members.includes(root?._id))
+                            })
+                            setPotentialChat(filtered);
+                            setAvailableUsers(filteredUser);
+                        }
+                    })                    
+                }
+               
+            }
+            
+            catch(err){
                 console.log(err)
             }
             
@@ -70,14 +99,22 @@ const Chat = () => {
 
     },[availableChat])
 
+    useEffect(() => {
+        //console.log(messages);
+    },[messages])
+
+    useEffect(() => {
+        //console.log('test->',openChat)
+    },[openChat])
+
 
 
 
     return (
         <div className="flex h-screen antialiased text-gray-800 my-12">
-            <div className="flex flex-row h-full w-full overflow-x-hidden bg-black">
-                <SideBar potentialChat = {potentialChat} availableChat={availableUsers} />
-                <ChatScreen />
+            <div className="flex flex-row h-full w-full overflow-x-hidden ">
+                <SideBar potentialChat = {potentialChat} availableChat={availableUsers} setOpenChat = {setOpenChat} setDestUser = {setDestUser}/>
+                <ChatScreen openChat = {openChat} destUser = {destUser} />
             </div>
         </div>
     )
