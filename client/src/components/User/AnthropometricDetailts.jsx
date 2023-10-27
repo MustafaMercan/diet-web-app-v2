@@ -4,11 +4,14 @@ import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getRequest, postRequest, baseUrl, updateRequest, deleteRequest } from '../../services/services';
 import { formHandler } from '../../utils/formHandler';
+import { useSelector } from 'react-redux';
 
 const AnthropometricDetailts = () => {
 
 
     const { id } = useParams();
+
+    const user = useSelector((state) => state.user);
 
 
 
@@ -135,7 +138,6 @@ const AnthropometricDetailts = () => {
                     return (
                         <div key={index}>
                             <ReactECharts option={option} />
-
 
 
                             <button

@@ -44,7 +44,7 @@ const TableElement = ({ booking }) => {
                 type='submit'
                 className="px-4 py-1 my-5 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-red-400 border border-transparent rounded-lg  hover:bg-red-500 focus:outline-none focus:shadow-outline-purple"
             >
-                Regular
+                Deleted
             </button>
             <button
                 className=" ml-3 px-4 py-1 my-5 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-green-300 border border-transparent rounded-lg  hover:bg-green-800 focus:outline-none focus:shadow-outline-purple"

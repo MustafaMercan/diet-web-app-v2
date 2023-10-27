@@ -75,12 +75,14 @@ const Chat = () => {
                 }else{
                     getRequest(`${baseUrl}/root/get/all`)
                     .then(response => {
+                        console.log(response)
                         if(response){
                             const filtered = response.filter((root) => {
-                                return !availableChat?.some((chat) => chat.members.includes(root?._id));
+                                console.log(availableChat)
+                                return !availableChat?.some((chat) => chat.members.includes(user?._id));
                             })
                             const filteredUser = response.filter((root) => {
-                                return availableChat?.some((chat) => chat.members.includes(root?._id))
+                                return availableChat?.some((chat) => chat.members.includes(user?._id))
                             })
                             setPotentialChat(filtered);
                             setAvailableUsers(filteredUser);

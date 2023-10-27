@@ -48,6 +48,7 @@ const Login = () => {
             <h2 className="mt-4 text-gray-500 dark:text-gray-400">
               Let’s get you all set up so you can verify your personal account and begin setting up your profile.
             </h2>
+            
             <form className="flex flex-col items-center justify-center mt-32 w-full "
               onChange={(event) => formHandler({ event, form: loginForm, setForm: setLoginForm })}
               onSubmit={(event) => loginSubmitHandler({ event, setForm: setInformation, data: loginForm, url: '/user/login' })}

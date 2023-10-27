@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { baseUrl, getRequest, postRequest } from '../../services/services';
 import {socket} from '../../socket';
+import photo from '../../assets/cardsImage.png'
+import { useNavigate} from 'react-router-dom';
 
 
 const SideBar = ({ potentialChat, availableChat, setOpenChat, setDestUser}) => {
@@ -12,9 +14,14 @@ const SideBar = ({ potentialChat, availableChat, setOpenChat, setDestUser}) => {
         if(state.root?._id) return state.root;
         else if(state.user?._id) return state.user
       });
+    const navigate = useNavigate();
+
     
 
     useEffect(() => {
+        if (!user?._id) {
+            navigate('/');
+        }
         socket.emit('join',({user}))
         //socket.emit('private',{roomId:user?._id,message:"sa"})
     },[])
@@ -56,7 +63,7 @@ const SideBar = ({ potentialChat, availableChat, setOpenChat, setDestUser}) => {
                             </path>
                         </svg>
                     </div>
-                    <div className="ml-2 font-bold text-2xl">QuickChat</div>
+                    <div className="ml-2 font-bold text-2xl">Chat App</div>
                 </div>
 
 
@@ -65,16 +72,9 @@ const SideBar = ({ potentialChat, availableChat, setOpenChat, setDestUser}) => {
 
                 <div className="flex flex-col items-center bg-indigo-100 border border-gray-200 mt-4 w-full py-6 px-4 rounded-lg">
                     <div className="h-20 w-20 rounded-full border overflow-hidden">
-                        <img src="https://avatars3.githubusercontent.com/u/2763884?s=128" alt="Avatar" className="h-full w-full" />
+                        <img src={photo} alt="Avatar" className="h-full w-full" />
                     </div>
-                    <div className="text-sm font-semibold mt-2">Aminos Co.</div>
-                    <div className="text-xs text-gray-500">Lead UI/UX Designer</div>
-                    <div className="flex flex-row items-center mt-3">
-                        <div className="flex flex-col justify-center h-4 w-8 bg-indigo-500 rounded-full">
-                            <div className="h-3 w-3 bg-white rounded-full self-end mr-1" />
-                        </div>
-                        <div className="leading-none ml-1 text-xs">Active</div>
-                    </div>
+                    <div className="text-sm font-semibold mt-2">{user?.firstName}.</div>
                 </div>
 
 

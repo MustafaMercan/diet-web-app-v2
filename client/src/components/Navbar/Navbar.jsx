@@ -39,10 +39,13 @@ const Navbar = () => {
         ) : (
           <div className="bg-yellow-600 bg-opacity-50 text-white text-xs text-center uppercase tracking-widest py-2">
             Sağlıklı Yaşamaya
-            <NavLink to="/register" className="underline">
+            <NavLink to="/register" className="underline mx-2">
               Bugün
             </NavLink>
-            Bizimle Birlikte Başlayın
+            Bizimle Birlikte Başlayın.
+            <NavLink to="/login" className="underline mx-2">
+              Zaten Üye Misiniz?
+            </NavLink>
           </div>
         )
       }

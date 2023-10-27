@@ -5,7 +5,6 @@ const UserAuthentication = () => {
 
 
     const user = useSelector((state) => state.user);
-    const dispatch = useDispatch();
     const navigate = useNavigate();
 
 

@@ -116,7 +116,7 @@ const ChatScreen = ({ openChat, destUser }) => {
       </div>
 
 
-      <div className="py-5">
+      <div className="py-5 flex ">
         <input
           className="w-full bg-gray-300 py-5 px-3 rounded-xl"
           type="text"
@@ -124,7 +124,7 @@ const ChatScreen = ({ openChat, destUser }) => {
           onChange={messageInputHandler}
         />
         <button
-          className="flex items-center justify-center bg-indigo-500 hover:bg-indigo-600 rounded-xl text-white px-4 py-1 flex-shrink-0"
+          className="flex items-center justify-center bg-indigo-500 hover:bg-indigo-600 rounded-xl text-white px-4 py-1 flex-shrink-0 mx-5"
           onClick={async(e) => {
             
             socket.emit('private', ({ roomId: destUser?._id, messageInput }))

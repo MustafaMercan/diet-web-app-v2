@@ -16,6 +16,7 @@ import RootBooking from './pages/Root/RootBooking'
 import UserEditProfile from './pages/User/UserEditProfile'
 import RootUserProfile from './pages/Root/UserProfile'
 import Chat from './pages/Chat/Chat'
+import RootAuthentication from './components/Authentication/RootAuthentication'
 
 
 function App() {
@@ -30,17 +31,23 @@ function App() {
         <Route path='/register' element={<Register />} />
 
         <Route path='/user/*' element={<UserAuthentication />}>
-          <Route path=':id' element={<UserProfile />}/>
-          <Route path='booking' element = {<UserBookings/>} />
-          <Route path=':id/edit' element = {<UserEditProfile/>}/>
+          <Route path=':id' element={<UserProfile />} />
+          <Route path='booking' element={<UserBookings />} />
+          <Route path=':id/edit' element={<UserEditProfile />} />
         </Route>
 
-        
-        <Route path = '/chat' element = {<Chat/>} />
+
+        <Route path='/chat' element={<Chat />} />
+
         <Route path='/root/login' element={<RootLogin />} />
-        <Route path='/root' element={<Root />} />
-        <Route path = '/root/bookings' element={<RootBooking/>}/>
-        <Route path = '/root/:id' element={<RootUserProfile/>} />
+
+        <Route path='/root/*' element={<RootAuthentication />}>
+          <Route path='' element={<Root />} />
+          <Route path='bookings' element={<RootBooking />} />
+          <Route path=':id' element={<RootUserProfile />} />
+        </Route>
+
+
 
       </Routes>
       <Footer />

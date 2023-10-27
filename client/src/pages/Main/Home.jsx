@@ -7,6 +7,7 @@ import homePhotoV2 from '../../assets/homePhotoV2.jpg';
 import { useState } from 'react';
 import services from '../../assets/services.png';
 import Footer from '../../components/Footer';
+import { NavLink } from 'react-router-dom';
 
 
 
@@ -149,7 +150,7 @@ const Home = () => {
                         </div>
                         <div className="bg-gray-100 px-12 pt-24">
                             <p className="text-sm leading-loose text-gray-400 font-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                            <a href="#" className="inline-block bg-gray-400 uppercase text-xs tracking-widest text-center text-green-900 m-4 p-3 px-12 hover:opacity-75 hover:text-black hover:bg-green-900 ">Let's work together</a>
+                            <NavLink to="/register" className="inline-block bg-gray-400 uppercase text-xs tracking-widest text-center text-green-900 m-4 p-3 px-12 hover:opacity-75 hover:text-black hover:bg-green-900 ">Let's work together</NavLink>
 
                         </div>
                     </div>
@@ -161,7 +162,7 @@ const Home = () => {
                     <div className="mb-12 container mx-auto flex">
                         <div className="bg-green-700 bg-opacity-40 text-white text-center w-1/2 py-64">
                             <h4 className="text-xs uppercase font-light tracking-widest mb-1">Featured Destination</h4>
-                            <h3 className="font-display text-xl">The South of France</h3>
+                            <h3 className="font-display text-xl">Lorem ipsum dolor sit amet, consectetur adipisicing</h3>
                         </div>
                         <div className="w-1/2 relative">
                             <img src={homePhotoV2} className="absolute inset-0 w-full h-full object-cover" />
@@ -172,7 +173,7 @@ const Home = () => {
 
 
                     <div className=" mx-auto max-w-6xl bg-white py-20 px-12 lg:px-24 shadow-xl my-24 text-center">
-                        <h1 className={` my-11 font-primaryStyle`}>Hedefinize Uygun Çözümler</h1>
+                        <h1 className={`text-4xl text-green-800 font-display uppercase tracking-widest`}>Hedefinize Uygun Çözümler</h1>
                         <div className=' my-11 flex flex-wrap justify-center relative'>
                             <div className='bg-cardColor rounded-xl flex items-center justify-center flex-col m-8 px-10 py-5 shadow-2xl'>
                                 <img src={cardImage} />
@@ -241,7 +242,7 @@ const Home = () => {
                 </div>
                 <div className="bg-green-700 bg-opacity-40 px-12 py-24 flex flex-col items-center justify-center">
                     <p className="tracking-widest text-lg text-white text-center uppercase font-heading font-light mb-6">Chat with us today</p>
-                    <a href="#" className="inline-block uppercase text-xs tracking-widest text-center bg-white text-green-900 p-3 px-12 hover:opacity-75">Let's work together</a>
+                    <NavLink to="/register" className="inline-block uppercase text-xs tracking-widest text-center bg-white text-green-900 p-3 px-12 hover:opacity-75">Let's work together</NavLink>
                 </div>
                
             </div>
